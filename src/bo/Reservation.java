@@ -17,10 +17,13 @@ public class Reservation {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+	
 	@Column(name="nom", length=40)
 	private String nom;
+	
 	@Column(name="date")
 	private Date date;
+	
 	@OneToMany
 	private List<Table> table = new ArrayList<Table>();
 	
