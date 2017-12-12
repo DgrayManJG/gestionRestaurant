@@ -25,7 +25,7 @@ public class Reservation {
 	private Date date;
 	
 	@OneToMany
-	private List<Table> table = new ArrayList<Table>();
+	private Table table;
 	
 	public int getId() {
 		return id;
@@ -45,10 +45,10 @@ public class Reservation {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public List<Table> getTable() {
+	public Table getTable() {
 		return table;
 	}
-	public void setTable(List<Table> table) {
+	public void setTable(Table table) {
 		this.table = table;
 	}
 	
