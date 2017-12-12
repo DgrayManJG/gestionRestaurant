@@ -12,7 +12,7 @@ public class Service {
 	private int id;
 	
 	@ManyToOne
-	private Table table;
+	private Place place;
 	
 	@ManyToOne
 	private Commande commande;
@@ -26,12 +26,12 @@ public class Service {
 		this.id = id;
 	}
 
-	public Table getTable() {
-		return table;
+	public Place getPlace() {
+		return place;
 	}
 
-	public void setTable(Table table) {
-		this.table = table;
+	public void setPlace(Place place) {
+		this.place = place;
 	}
 
 	public Commande getCommande() {
@@ -44,7 +44,7 @@ public class Service {
 
 	@Override
 	public String toString() {
-		return "Service [id=" + id + ", table=" + table + ", commande=" + commande + "]";
+		return "Service [id=" + id + ", place=" + place + ", commande=" + commande + "]";
 	}
 
 }

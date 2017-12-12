@@ -9,14 +9,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity 
-public class Table {
+public class Place {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id	;
 	
 	@Column(name="number", length=4)
-	private int number	;
+	private int number;
 	
 	@Column(name="description", length=150)
 	private String decription	;
@@ -24,17 +24,17 @@ public class Table {
 	@ManyToOne
 	private Statut statut;
 	
-	@OneToMany(mappedBy="table")
+	@OneToMany(mappedBy="place")
 	private Service service;
 	
 	@ManyToOne
 	private Reservation reservation;
 	
-	public Table() {
+	public Place() {
 		
 	}
 
-	public Table(int id, int number, String decription, Statut statut, Service service, Reservation reservation) {
+	public Place(int id, int number, String decription, Statut statut, Service service, Reservation reservation) {
 		super();
 		this.id = id;
 		this.number = number;

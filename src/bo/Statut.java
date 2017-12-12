@@ -18,7 +18,7 @@ public class Statut {
 	private String libelle;
 	
 	@OneToMany(mappedBy="statut")
-	private Table table;
+	private Place place;
 
 	
 	public int getId() {
@@ -37,17 +37,17 @@ public class Statut {
 		this.libelle = libelle;
 	}
 
-	public Table getTable() {
-		return table;
+	public Place getTable() {
+		return place;
 	}
 
-	public void setTable(Table table) {
-		this.table = table;
+	public void setTable(Place table) {
+		this.place = table;
 	}
 
 	@Override
 	public String toString() {
-		return "Statut [id=" + id + ", libelle=" + libelle + ", table=" + table + "]";
+		return "Statut [id=" + id + ", libelle=" + libelle + ", table=" + place + "]";
 	}
 	
 }

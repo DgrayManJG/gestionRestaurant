@@ -23,7 +23,7 @@ public class Reservation {
 	private Date date;
 	
 	@OneToMany
-	private Table table;
+	private Place place;
 	
 	public int getId() {
 		return id;
@@ -43,11 +43,11 @@ public class Reservation {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public Table getTable() {
-		return table;
+	public Place getPlace() {
+		return place;
 	}
-	public void setTable(Table table) {
-		this.table = table;
+	public void setPlace(Place place) {
+		this.place = place;
 	}
 	
 	@Override
