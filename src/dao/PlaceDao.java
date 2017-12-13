@@ -8,6 +8,16 @@ import bo.Place;
 import bo.Plat;
 
 public class PlaceDao implements CRUD {
+	
+	static PlaceDao placeDao;
+	
+	public static PlaceDao getInstance()
+	{			
+		if (placeDao == null){ 	
+			placeDao = new PlaceDao();	
+		}
+		return placeDao;
+	}
 
 	@Override
 	public boolean modify(Object object) {

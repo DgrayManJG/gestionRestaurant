@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import bo.Place;
 import bo.Statut;
 import dao.JPAUtil;
+import dao.PlaceDao;
 
 /**
  * Servlet implementation class AddPlace
@@ -34,6 +35,10 @@ public class AddPlace extends HttpServlet {
 		
 		em.persist(place);
 		em.getTransaction().commit();
+		
+		PlaceDao placeDao = new PlaceDao(); 
+		placeDao.getAllPlaceWithStatut();
+		
 		em.close();
 	}
 
