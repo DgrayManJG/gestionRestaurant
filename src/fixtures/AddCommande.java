@@ -1,6 +1,7 @@
 package fixtures;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.EntityManager;
@@ -11,8 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bo.Commande;
-import bo.Place;
-import bo.Reservation;
+import bo.Plat;
 import dao.JPAUtil;
 
 /**
@@ -31,6 +31,10 @@ public class AddCommande extends HttpServlet {
 		
 		EntityManager em = JPAUtil.getEntityManager();
 		em.getTransaction().begin();
+		
+		Collection<Plat> plat = em.createQuery("SELECT p FROM Plat p").getResultList();
+		System.out.println(plat);
+		commande.setPlat(plat);
 		
 		em.persist(commande);
 		em.getTransaction().commit();

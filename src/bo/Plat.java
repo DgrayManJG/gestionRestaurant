@@ -60,7 +60,7 @@ public class Plat {
 
 	@Override
 	public String toString() {
-		return "Plat [id=" + id + ", libelle=" + libelle + ", prix=" + prix + ", type=" + type + "]";
+		return "Plat [id=" + id + ", libelle=" + libelle + ", prix=" + prix + "]";
 	}
 
 	
