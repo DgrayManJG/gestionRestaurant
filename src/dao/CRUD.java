@@ -7,7 +7,7 @@ public interface CRUD {
 	 * @param object
 	 * @return
 	 */
-	public int create();
+	public int create(Object object);
 	
 	/**
 	 * Permet la modification d'un objet. True si modifié avec succès

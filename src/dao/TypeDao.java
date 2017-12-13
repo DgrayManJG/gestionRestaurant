@@ -1,16 +1,18 @@
 package dao;
 
+import bo.Type;
+
 public class TypeDao implements CRUD{
 
 	@Override
 	public int create(Object object) {
-		// TODO Auto-generated method stub
+
 		return 0;
 	}
 
 	@Override
 	public boolean modify(Object object) {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 
