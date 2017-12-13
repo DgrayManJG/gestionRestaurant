@@ -87,11 +87,7 @@ public class Place {
 
 	@Override
 	public String toString() {
-		return "Place [id=" + id + ", number=" + number + ", decription=" + decription + ", statut=" + statut
-				+ ", service=" + service + ", reservation=" + reservation + "]";
+		return "Place [id=" + id + ", number=" + number + ", decription=" + decription + "]";
 	}
-
-	
-
 	
 }

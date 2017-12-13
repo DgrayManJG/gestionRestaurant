@@ -1,6 +1,7 @@
 package fixtures;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.persistence.EntityManager;
 import javax.servlet.ServletException;
@@ -9,30 +10,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bo.Commande;
 import bo.Place;
-import bo.Statut;
+import bo.Reservation;
 import dao.JPAUtil;
 
 /**
- * Servlet implementation class AddPlace
+ * Servlet implementation class AddCommande
  */
-@WebServlet("/AddPlace")
-public class AddPlace extends HttpServlet {
+@WebServlet("/AddCommande")
+public class AddCommande extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Place place = new Place();
-		place.setNumber(1);
-		place.setDecription("au milieu");
+		Date aujourdhui = new Date();
+		
+		Commande commande = new Commande();
+		commande.setDate(aujourdhui);
 		
 		EntityManager em = JPAUtil.getEntityManager();
 		em.getTransaction().begin();
 		
-		Statut statut = em.find(Statut.class, 1);
-		System.out.println(statut);
-		place.setStatut(statut);
-		
-		em.persist(place);
+		em.persist(commande);
 		em.getTransaction().commit();
 		em.close();
 	}

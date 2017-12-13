@@ -1,7 +1,9 @@
 package bo;
 
 import java.util.Collection;
+import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +18,9 @@ public class Commande {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
+	@Column(name="date")
+	private Date date;
+	
 	@ManyToMany
 	private Collection<Plat> plat;
 	
@@ -28,6 +33,14 @@ public class Commande {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 	
 	public Collection<Plat> getPlat() {
@@ -48,7 +61,9 @@ public class Commande {
 
 	@Override
 	public String toString() {
-		return "Commande [id=" + id + ", plat=" + plat + "]";
+		return "Commande [id=" + id + ", plat=" + plat + ", date=" + date +"]";
 	}
+
+	
 	
 }

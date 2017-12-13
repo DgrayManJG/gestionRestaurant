@@ -1,6 +1,7 @@
 package fixtures;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.persistence.EntityManager;
 import javax.servlet.ServletException;
@@ -9,30 +10,35 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bo.Commande;
 import bo.Place;
-import bo.Statut;
+import bo.Reservation;
+import bo.Service;
 import dao.JPAUtil;
 
 /**
- * Servlet implementation class AddPlace
+ * Servlet implementation class AddService
  */
-@WebServlet("/AddPlace")
-public class AddPlace extends HttpServlet {
+@WebServlet("/AddService")
+public class AddService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Place place = new Place();
-		place.setNumber(1);
-		place.setDecription("au milieu");
-		
 		EntityManager em = JPAUtil.getEntityManager();
 		em.getTransaction().begin();
 		
-		Statut statut = em.find(Statut.class, 1);
-		System.out.println(statut);
-		place.setStatut(statut);
+		Service service = new Service();
 		
-		em.persist(place);
+		Place place = em.find(Place.class, 1);
+		System.out.println(place);
+		service.setPlace(place);
+		
+		Commande commande = em.find(Commande.class, 1);
+		System.out.println(commande);
+		service.setCommande(commande);
+		
+		em.persist(service);
 		em.getTransaction().commit();
 		em.close();
 	}
