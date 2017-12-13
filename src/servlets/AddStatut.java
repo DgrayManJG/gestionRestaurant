@@ -22,7 +22,6 @@ public class AddStatut extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Statut statut = new Statut();
-		statut.setId(1);
 		statut.setLibelle("Libre");
 		
 		EntityManager em = JPAUtil.getEntityManager();

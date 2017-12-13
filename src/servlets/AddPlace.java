@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bo.Place;
+import bo.Statut;
 import dao.JPAUtil;
 
 /**
@@ -21,12 +22,16 @@ public class AddPlace extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Place place = new Place();
-		place.setId(1);
 		place.setNumber(1);
-		place.setDecription("Au milieu.");
+		place.setDecription("blabla.");
 		
 		EntityManager em = JPAUtil.getEntityManager();
 		em.getTransaction().begin();
+		
+		Statut statut = em.find(Statut.class, 1);
+		System.out.println(statut);
+		place.setStatut(statut);
+		
 		em.persist(place);
 		em.getTransaction().commit();
 		em.close();
