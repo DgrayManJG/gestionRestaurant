@@ -44,11 +44,6 @@ public class PlaceDao implements CRUD {
 		
 		Collection<Place> Places = em.createQuery("SELECT p FROM Place p").getResultList();
 		
-		for(Place place : Places )  {
-			System.out.println(place);
-			System.out.println(place.getStatut());
-		}
-		
 		return Places;
 	}
 
