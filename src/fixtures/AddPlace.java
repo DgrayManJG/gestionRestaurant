@@ -1,4 +1,4 @@
-package servlets;
+package fixtures;
 
 import java.io.IOException;
 
@@ -9,28 +9,35 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bo.Place;
 import bo.Statut;
 import dao.JPAUtil;
 
 /**
- * Servlet implementation class AddStatut
+ * Servlet implementation class AddPlace
  */
-@WebServlet("/AddStatut")
-public class AddStatut extends HttpServlet {
+@WebServlet("/AddPlace")
+public class AddPlace extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Statut statut = new Statut();
-		statut.setLibelle("Libre");
+		Place place = new Place();
+		place.setNumber(1);
+		place.setDecription("blabla.");
 		
 		EntityManager em = JPAUtil.getEntityManager();
 		em.getTransaction().begin();
-		em.persist(statut);
+		
+		Statut statut = em.find(Statut.class, 1);
+		System.out.println(statut);
+		place.setStatut(statut);
+		
+		em.persist(place);
 		em.getTransaction().commit();
 		em.close();
 	}
 
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
