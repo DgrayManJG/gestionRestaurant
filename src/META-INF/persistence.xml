@@ -3,7 +3,13 @@
 	<persistence-unit name="JPA">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		
-		<class></class>
+		<class>bo.Commande</class>
+		<class>bo.Place</class>
+		<class>bo.Plat</class>
+		<class>bo.Reservation</class>
+		<class>bo.Service</class>
+		<class>bo.Statut</class>
+		<class>bo.Type</class>
 
 		<properties>
 			<!-- PROPRIETES STANDARDS JPA -->
@@ -21,7 +27,8 @@
 						value="true"/>
 			<property 	name="hibernate.format_sql" 
 						value="true"/>
-			<property name="hibernate.hbm2ddl.auto" value="create"/> 
+			 <property name="hibernate.hbm2ddl.auto" value="create"/> 
+		
 		</properties>
 	</persistence-unit>
 </persistence>

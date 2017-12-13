@@ -10,29 +10,29 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bo.Place;
+import bo.Statut;
 import dao.JPAUtil;
 
 /**
- * Servlet implementation class AddPlace
+ * Servlet implementation class AddStatut
  */
-@WebServlet("/AddPlace")
-public class AddPlace extends HttpServlet {
+@WebServlet("/AddStatut")
+public class AddStatut extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Place place = new Place();
-		place.setId(1);
-		place.setNumber(1);
-		place.setDecription("Au milieu.");
+		Statut statut = new Statut();
+		statut.setId(1);
+		statut.setLibelle("Libre");
 		
 		EntityManager em = JPAUtil.getEntityManager();
 		em.getTransaction().begin();
-		em.persist(place);
+		em.persist(statut);
 		em.getTransaction().commit();
 		em.close();
 	}
 
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
