@@ -22,22 +22,36 @@ public class AddPlace extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Place place = new Place();
-		place.setNumber(1);
-		place.setDecription("au milieu");
-		
 		EntityManager em = JPAUtil.getEntityManager();
 		em.getTransaction().begin();
 		
 		Statut statut = em.find(Statut.class, 1);
-		System.out.println(statut);
+		
+		Place place = new Place();
+		place.setNumber(1);
+		place.setDecription("au milieu");
 		place.setStatut(statut);
-		
 		em.persist(place);
-		em.getTransaction().commit();
 		
-		PlaceDao placeDao = new PlaceDao(); 
-		placeDao.getAllPlaceWithStatut();
+		Place place1 = new Place();
+		place1.setNumber(2);
+		place1.setDecription("fenêtre droite");
+		place1.setStatut(statut);
+		em.persist(place1);
+		
+		Place place2 = new Place();
+		place2.setNumber(3);
+		place2.setDecription("fenêtre gauche");
+		place2.setStatut(statut);
+		em.persist(place2);
+		
+		Place place3 = new Place();
+		place3.setNumber(4);
+		place3.setDecription("devant la porte");
+		place3.setStatut(statut);
+		em.persist(place3);
+		
+		em.getTransaction().commit();
 		
 		em.close();
 	}
