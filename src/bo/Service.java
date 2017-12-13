@@ -1,10 +1,12 @@
 package bo;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+@Entity 
 public class Service {
 	
 	@Id
@@ -17,7 +19,6 @@ public class Service {
 	@ManyToOne
 	private Commande commande;
 	
-
 	public int getId() {
 		return id;
 	}

@@ -1,5 +1,7 @@
 package bo;
 
+import java.util.Collection;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,7 +20,7 @@ public class Statut {
 	private String libelle;
 	
 	@OneToMany(mappedBy="statut")
-	private Place place;
+	private Collection<Place> place;
 
 	
 	public int getId() {
@@ -36,18 +38,20 @@ public class Statut {
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
-
-	public Place getTable() {
+	
+	public Collection<Place> getPlace() {
 		return place;
 	}
 
-	public void setTable(Place table) {
-		this.place = table;
+	public void setPlace(Collection<Place> place) {
+		this.place = place;
 	}
 
 	@Override
 	public String toString() {
-		return "Statut [id=" + id + ", libelle=" + libelle + ", table=" + place + "]";
+		return "Statut [id=" + id + ", libelle=" + libelle + ", place=" + place + "]";
 	}
+
+	
 	
 }

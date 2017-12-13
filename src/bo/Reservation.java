@@ -1,5 +1,6 @@
 package bo;
 
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -8,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Reservation {
@@ -22,7 +24,7 @@ public class Reservation {
 	@Column(name="date")
 	private Date date;
 	
-	@OneToMany
+	@OneToOne
 	private Place place;
 	
 	public int getId() {
@@ -54,4 +56,6 @@ public class Reservation {
 	public String toString() {
 		return "Reservation [id=" + id + ", nom=" + nom + ", date=" + date + "]";
 	}
+	
+	
 }

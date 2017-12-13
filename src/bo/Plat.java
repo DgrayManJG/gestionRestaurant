@@ -1,12 +1,16 @@
 package bo;
 
+import java.util.Collection;
+
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
+@Entity 
 public class Plat {
 	
 	@Id
@@ -19,11 +23,8 @@ public class Plat {
 	@Column(name="prix")
 	private Double prix;
 	
-	@OneToMany
+	@OneToOne
 	private Type type;
-	
-	@ManyToMany
-	private Commande commande;
 
 	public int getId() {
 		return id;
@@ -48,7 +49,7 @@ public class Plat {
 	public void setPrix(Double prix) {
 		this.prix = prix;
 	}
-
+	
 	public Type getType() {
 		return type;
 	}
@@ -57,18 +58,13 @@ public class Plat {
 		this.type = type;
 	}
 
-	public Commande getCommande() {
-		return commande;
-	}
-
-	public void setCommande(Commande commande) {
-		this.commande = commande;
-	}
-
 	@Override
 	public String toString() {
-		return "Plat [id=" + id + ", libelle=" + libelle + ", prix=" + prix + ", type=" + type + ", commande="
-				+ commande + "]";
+		return "Plat [id=" + id + ", libelle=" + libelle + ", prix=" + prix + ", type=" + type + "]";
 	}
+
+	
+
+	
 
 }

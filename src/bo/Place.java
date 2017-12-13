@@ -1,5 +1,7 @@
 package bo;
 
+import java.util.Collection;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,29 +21,19 @@ public class Place {
 	private int number;
 	
 	@Column(name="description", length=150)
-	private String decription	;
+	private String decription;
 	
 	@ManyToOne
 	private Statut statut;
 	
 	@OneToMany(mappedBy="place")
-	private Service service;
+	private Collection<Service> service;
 	
-	@ManyToOne
-	private Reservation reservation;
+	@OneToMany(mappedBy="place")
+	private Collection<Reservation> reservation;
 	
 	public Place() {
 		
-	}
-
-	public Place(int id, int number, String decription, Statut statut, Service service, Reservation reservation) {
-		super();
-		this.id = id;
-		this.number = number;
-		this.decription = decription;
-		this.statut = statut;
-		this.service = service;
-		this.reservation = reservation;
 	}
 
 	public int getId() {
@@ -76,19 +68,30 @@ public class Place {
 		this.statut = statut;
 	}
 
-	public Service getService() {
+	public Collection<Service> getService() {
 		return service;
 	}
 
-	public void setService(Service service) {
+	public void setService(Collection<Service> service) {
 		this.service = service;
 	}
-
-	public Reservation getReservation() {
+	
+	public Collection<Reservation> getReservation() {
 		return reservation;
 	}
 
-	public void setReservation(Reservation reservation) {
+	public void setReservation(Collection<Reservation> reservation) {
 		this.reservation = reservation;
-	}	
+	}
+
+
+	@Override
+	public String toString() {
+		return "Place [id=" + id + ", number=" + number + ", decription=" + decription + ", statut=" + statut
+				+ ", service=" + service + ", reservation=" + reservation + "]";
+	}
+
+	
+
+	
 }
