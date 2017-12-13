@@ -5,8 +5,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaBuilder;
 
-import org.hibernate.SessionFactory;
-
 public class JPAUtil {
 	
 	private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("gestionRestaurant");

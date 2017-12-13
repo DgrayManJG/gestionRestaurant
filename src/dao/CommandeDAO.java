@@ -2,28 +2,21 @@ package dao;
 
 import javax.persistence.EntityManager;
 
-import bo.Service;
+import bo.Commande;
 
-public class ServiceDao implements CRUD {
+public class CommandeDAO implements CRUD {
 	
-	static ServiceDao serviceDao;
+	static StatutDao statutDao;
 	private EntityManager em = JPAUtil.getEntityManager();
-	
-	public static ServiceDao getInstance(){			
-		if (serviceDao == null){ 	
-			serviceDao = new ServiceDao();	
-		}
-		return serviceDao;
-	}
 
 	@Override
 	public int create(Object object) {
-		Service service = new Service();
+		Commande commande = new Commande();
 		
 		try {	
-			service = (Service)object;
+			commande = (Commande)object;
 			em.getTransaction().begin();
-			em.persist(service);
+			em.persist(commande);
 			em.getTransaction().commit();
 			em.close();
 		} catch (Exception e) {
@@ -31,17 +24,17 @@ public class ServiceDao implements CRUD {
 			return 0;
 		}
 		
-		return service.getId();
+		return commande.getId();
 	}
 
 	@Override
 	public boolean modify(Object object) {
-		Service service = new Service();
+		Commande commande = new Commande();
 		
 		try{
-			service = (Service)object;
+			commande = (Commande)object;
 			em.getTransaction().begin();
-			em.persist(service);
+			em.persist(commande);
 			em.getTransaction().commit();
 			em.close();
 		} catch (Exception e) {
@@ -53,12 +46,12 @@ public class ServiceDao implements CRUD {
 
 	@Override
 	public boolean delete(Object object) {
-		Service service = new Service();
+		Commande commande = new Commande();
 		
 		try {
-			service = (Service)object;
+			commande = (Commande)object;
 			em.getTransaction().begin();
-			em.remove(service);
+			em.remove(commande);
 			em.getTransaction().commit();
 			em.close();			
 		} catch (Exception e ) {
@@ -67,4 +60,5 @@ public class ServiceDao implements CRUD {
 		}
 		return true;
 	}
+
 }

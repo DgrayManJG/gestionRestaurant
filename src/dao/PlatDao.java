@@ -2,7 +2,6 @@ package dao;
 
 import javax.persistence.EntityManager;
 
-import bo.Place;
 import bo.Plat;
 
 public class PlatDao implements CRUD {

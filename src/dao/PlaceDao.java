@@ -5,7 +5,6 @@ import java.util.Collection;
 import javax.persistence.EntityManager;
 
 import bo.Place;
-import bo.Plat;
 
 public class PlaceDao implements CRUD {
 	

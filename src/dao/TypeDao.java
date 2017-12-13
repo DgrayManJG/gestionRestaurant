@@ -2,7 +2,6 @@ package dao;
 
 import javax.persistence.EntityManager;
 
-import bo.Place;
 import bo.Type;
 
 
