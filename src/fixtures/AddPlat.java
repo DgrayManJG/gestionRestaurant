@@ -14,7 +14,7 @@ import bo.Type;
 import dao.JPAUtil;
 
 @WebServlet("/AddPlat")
-public class AddPlat  extends HttpServlet {
+public class AddPlat extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -31,8 +31,6 @@ public class AddPlat  extends HttpServlet {
 		Type type3 = new Type();
 		type3.setLibelle("Délice inconu");
 		em.persist(type3);
-		
- //em.getTransaction().commit();
 		
 		Plat plat = new Plat();
 		plat.setLibelle("Bétrave sauce papaille");
