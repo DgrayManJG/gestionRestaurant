@@ -1,6 +1,6 @@
 package dao;
 
-public class TableDao implements CRUD {
+public class PlaceDao implements CRUD {
 
 	@Override
 	public int create() {
@@ -19,5 +19,7 @@ public class TableDao implements CRUD {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+
 
 }

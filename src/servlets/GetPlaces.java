@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class GetTables
  */
 @WebServlet("/tables")
-public class GetTables extends HttpServlet {
+public class GetPlaces extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	
