@@ -73,12 +73,20 @@ public class PlaceDao implements CRUD {
 	
 	public Collection<Place> getAllPlaceWithStatut() {
 		
-		EntityManager em = JPAUtil.getEntityManager();
 		em.getTransaction().begin();
 		
 		Collection<Place> Places = em.createQuery("SELECT p FROM Place p").getResultList();
 		
 		return Places;
+	}
+	
+	public Place getPlaceById(int idPlace) {
+		
+		em.getTransaction().begin();
+		
+		Place place = (Place) em.createQuery("select p from Place p where p.id = :idPlace").setParameter(":idPlace", idPlace).getSingleResult();
+		
+		return place;
 	}
 
 }

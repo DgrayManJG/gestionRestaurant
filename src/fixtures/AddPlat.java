@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import bo.Plat;
 import bo.Type;
 import dao.JPAUtil;
+import dao.TypeDao;
 
 @WebServlet("/AddPlat")
 public class AddPlat extends HttpServlet {
@@ -22,9 +23,13 @@ public class AddPlat extends HttpServlet {
 		EntityManager em = JPAUtil.getEntityManager();
 		em.getTransaction().begin();
 		
+		TypeDao typeDao = new TypeDao(); 
+		
 		Type type1 = new Type();
 		type1.setLibelle("Plat");
-		em.persist(type1);
+		System.out.println(typeDao.create(type1));
+		
+		//em.persist(type1);
 		Type type2 = new Type();
 		type2.setLibelle("Dessert");
 		em.persist(type2);
