@@ -8,7 +8,7 @@
 		<div class="col-lg-6">
 		   <h4><c:out value="${place.number}" /></h4>
 		   <p><c:out value="${place.statut.libelle}" /></p>
-		   <a href="tables/reservation">Reservation</a>
+		   <a href="place/reservation?idPlace=${place.id}">Reservation</a>
 		</div>
 	</c:forEach>
  

@@ -15,7 +15,7 @@ import service.PlaceService;
 /**
  * Servlet implementation class GetTables
  */
-@WebServlet("/tables")
+@WebServlet("/places")
 public class GetPlaces extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
